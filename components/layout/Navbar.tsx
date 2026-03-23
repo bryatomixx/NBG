@@ -85,7 +85,10 @@ export default function Navbar() {
               {label}
             </Link>
           ))}
-          <Link href="/latino" className="text-[#10393C] font-medium" onClick={() => setOpen(false)}>NBG Latino 🇪🇸</Link>
+          <Link href="/latino" className="text-[#10393C] font-medium flex items-center gap-1" onClick={() => setOpen(false)}>
+            NBG Latino
+            <span className="text-xs bg-[#EAF2E5] text-[#10393C] px-1.5 py-0.5 rounded-full">ES</span>
+          </Link>
           <Link href="/quote" className="bg-[#EA7F49] text-white font-semibold px-5 py-2 rounded-full text-center" onClick={() => setOpen(false)}>Get a Quote</Link>
         </div>
       )}
