@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { motion, type Variants } from 'framer-motion'
 
 interface Props {
   headline: string
@@ -10,13 +10,13 @@ interface Props {
   badge?: string
 }
 
-const container = {
+const container: Variants = {
   hidden: {},
   show: { transition: { staggerChildren: 0.15 } },
 }
-const item = {
+const item: Variants = {
   hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const } },
 }
 
 export default function HeroSplit({ headline, subheadline, primaryCta, secondaryCta, badge }: Props) {
