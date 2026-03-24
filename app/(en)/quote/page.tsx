@@ -6,7 +6,11 @@ export const metadata: Metadata = {
   title: 'Get a Free Life Insurance Quote | National Brokers Group',
   description: 'Request a free life insurance quote from National Brokers Group. Term, whole, and universal life coverage options in Florida.',
   alternates: { canonical: 'https://nbg-insurance.com/quote' },
-  openGraph: { url: 'https://nbg-insurance.com/quote' },
+  openGraph: {
+    url: 'https://nbg-insurance.com/quote',
+    title: 'Get a Free Life Insurance Quote | National Brokers Group',
+    description: 'Request a free life insurance quote from National Brokers Group. Term, whole, and universal life coverage options in Florida.',
+  },
 }
 
 export default function QuotePage() {
