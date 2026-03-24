@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { resend } from '@/lib/resend'
+import { getResend } from '@/lib/resend'
 
 interface QuoteBody {
   firstName: string
@@ -45,7 +45,7 @@ export async function POST(req: Request): Promise<NextResponse> {
   ].join('\n')
 
   try {
-    await resend.emails.send({
+    await getResend().emails.send({
       from: 'NBG Website <noreply@nbg-insurance.com>',
       to: ['info@nbg-insurance.com'],
       subject: `New Quote Request — ${coverageType} from ${firstName} ${lastName}`,
