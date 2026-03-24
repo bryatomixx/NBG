@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import type { Metadata } from 'next'
 import HeroSplit from '@/components/home/HeroSplit'
 import AnimatedSection from '@/components/ui/AnimatedSection'
@@ -258,13 +259,131 @@ export default function AgentesPage() {
       <JsonLd data={schema} />
 
       {/* ── SECTION 1: HERO ── */}
-      <HeroSplit
-        badge="NBG Latino · División de Agentes"
-        headline="Construye una carrera real en seguros"
-        subheadline="NBG Latino está diseñado para agentes que quieren más que una simple contratación: un sistema claro, soporte real, entrenamiento en español y un camino definido para crecer desde el inicio hasta liderazgo de alto nivel."
-        primaryCta={{ label: 'Aplicar Ahora', href: '#aplicar' }}
-        secondaryCta={{ label: 'Ver Plan de Carrera', href: '#plan-carrera' }}
-      />
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-white pt-16">
+        {/* Background blobs */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-[#EAF2E5] via-[#FFE2B4]/30 to-transparent opacity-80 animate-blob blur-[60px]" />
+          <div className="absolute -bottom-40 -right-40 w-[600px] h-[600px] rounded-full bg-gradient-to-tl from-[#FFE2B4] via-[#EA7F49]/8 to-transparent opacity-70 animate-blob2 blur-[60px]" />
+          <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: 'radial-gradient(circle, #10393C 1.5px, transparent 1.5px)', backgroundSize: '28px 28px' }} />
+        </div>
+
+        <div className="relative max-w-6xl mx-auto px-6 py-24 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Left */}
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 bg-[#EAF2E5] border border-[#10393C]/10 text-[#10393C] text-xs font-semibold px-4 py-2 rounded-full mb-8 uppercase tracking-wider"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#EA7F49] inline-block animate-pulse" />
+              NBG Latino · División de Agentes
+            </motion.div>
+
+            <h1 className="text-5xl md:text-6xl lg:text-[4.5rem] font-bold text-[#10393C] leading-[1.05] tracking-tight mb-6">
+              {['Construye', 'una', 'carrera', 'real', 'en'].map((word, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }}
+                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                  transition={{ duration: 0.6, delay: 0.1 + i * 0.07, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  className="inline-block mr-[0.28em]"
+                >
+                  {word}
+                </motion.span>
+              ))}
+              <motion.span
+                initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }}
+                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                transition={{ duration: 0.6, delay: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
+                className="inline-block relative"
+              >
+                <span className="gradient-text">seguros</span>
+                <motion.svg
+                  className="absolute -bottom-1 left-0 w-full overflow-visible"
+                  height="6" viewBox="0 0 200 6" preserveAspectRatio="none"
+                >
+                  <motion.path
+                    d="M0 4 Q50 0 100 3 Q150 6 200 2"
+                    stroke="#EA7F49" strokeWidth="2.5" fill="none" strokeLinecap="round"
+                    initial={{ pathLength: 0 }} animate={{ pathLength: 1 }}
+                    transition={{ delay: 0.9, duration: 0.8 }}
+                  />
+                </motion.svg>
+              </motion.span>
+            </h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="text-lg text-gray-500 mb-10 max-w-lg leading-relaxed"
+            >
+              NBG Latino está diseñado para agentes que quieren más que una simple contratación: un sistema claro, soporte real, entrenamiento en español y un camino definido para crecer desde el inicio hasta liderazgo de alto nivel.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.72 }}
+              className="flex flex-wrap gap-4"
+            >
+              <Link
+                href="#aplicar"
+                className="inline-flex items-center gap-2 bg-[#EA7F49] hover:bg-[#ED6835] text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:shadow-2xl hover:shadow-[#EA7F49]/40 hover:-translate-y-1"
+              >
+                Aplicar Ahora →
+              </Link>
+              <Link
+                href="#plan-carrera"
+                className="inline-flex items-center gap-2 border-2 border-[#10393C]/20 text-[#10393C] hover:border-[#10393C] hover:bg-[#10393C] hover:text-white font-semibold px-8 py-4 rounded-full transition-all duration-300"
+              >
+                Ver Plan de Carrera
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* Right: Key pillars */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="hidden lg:grid grid-cols-2 gap-4"
+          >
+            {[
+              { icon: '🗣️', title: 'Liderazgo en español', desc: 'Comunicación y dirección en tu idioma' },
+              { icon: '📋', title: 'Plan de carrera', desc: '10 niveles con crecimiento definido' },
+              { icon: '🎓', title: 'Formación continua', desc: 'Entrenamiento práctico en español' },
+              { icon: '🚀', title: 'Visión nacional', desc: 'División diseñada para crecer en grande' },
+            ].map(({ icon, title, desc }, i) => (
+              <motion.div
+                key={title}
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 + i * 0.1, duration: 0.5 }}
+                className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+              >
+                <span className="text-2xl block mb-3">{icon}</span>
+                <p className="font-bold text-[#10393C] text-sm">{title}</p>
+                <p className="text-gray-400 text-xs mt-1">{desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Scroll hint */}
+        <motion.div
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+          transition={{ delay: 1.6 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        >
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+            className="w-5 h-8 rounded-full border-2 border-gray-300 flex items-start justify-center pt-1.5"
+          >
+            <div className="w-1 h-2 rounded-full bg-gray-400" />
+          </motion.div>
+        </motion.div>
+      </section>
 
       {/* ── SECTION 2: VISION ── */}
       <AnimatedSection>
@@ -336,6 +455,66 @@ export default function AgentesPage() {
               Más que una oportunidad aislada, NBG Latino busca convertirse en una plataforma seria
               de desarrollo para agentes que quieren construir en grande y con estructura.
             </p>
+          </div>
+        </section>
+      </AnimatedSection>
+
+      {/* ── SECTION: ACCESO A CARRIERS ── */}
+      <AnimatedSection>
+        <section className="bg-[#10393C] py-20 px-6 overflow-hidden relative">
+          {/* Background decoration */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <div className="absolute -top-20 right-0 w-96 h-96 bg-[#EA7F49]/10 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#EAF2E5]/5 rounded-full blur-3xl" />
+            <div className="absolute inset-0 opacity-[0.03]" style={{
+              backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px)',
+              backgroundSize: '28px 28px',
+            }} />
+          </div>
+          <div className="relative max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Left */}
+            <div>
+              <span className="text-xs uppercase tracking-widest font-semibold text-[#EA7F49] block mb-4">Capacidad de colocación</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight mb-6">
+                Acceso amplio a carriers.<br />
+                <span className="text-[#EA7F49]">Más capacidad para servir.</span>
+              </h2>
+              <p className="text-white/70 leading-relaxed mb-5">
+                Con acceso a más de 50 carriers de vida, NBG Latino está diseñado para apoyar a agentes que necesitan más opciones reales para servir mejor a las familias. La amplitud de soluciones permite trabajar con mayor flexibilidad, responder a distintos perfiles de clientes y reducir la dependencia de una sola compañía o un solo tipo de producto.
+              </p>
+              <p className="text-white/70 leading-relaxed mb-8">
+                Nuestra visión no es limitar al agente a una sola vía. Nuestra visión es construir una estructura que permita producir con más criterio, más opciones y mayor capacidad de servicio.
+              </p>
+              <p className="text-white/50 text-sm leading-relaxed">
+                Más que una plataforma limitada a un solo enfoque, NBG Latino busca convertirse en una estructura sólida, moderna y completa para agentes que quieren crecer con más herramientas, más opciones y más capacidad real de servicio.
+              </p>
+            </div>
+
+            {/* Right: feature points */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                { icon: '🏢', text: 'Acceso amplio a carriers de vida' },
+                { icon: '👥', text: 'Más opciones para distintos perfiles de clientes' },
+                { icon: '📈', text: 'Mayor capacidad de colocación' },
+                { icon: '🔓', text: 'Menos dependencia de una sola compañía' },
+                { icon: '🌎', text: 'Estructura pensada para servir mejor al mercado latino' },
+              ].map(({ icon, text }) => (
+                <div
+                  key={text}
+                  className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-2xl p-4 hover:bg-white/10 transition-colors duration-300"
+                >
+                  <span className="text-xl flex-shrink-0 mt-0.5">{icon}</span>
+                  <p className="text-white/80 text-sm leading-relaxed">{text}</p>
+                </div>
+              ))}
+              {/* 50+ badge */}
+              <div className="flex items-center justify-center bg-gradient-to-br from-[#EA7F49] to-[#ED6835] rounded-2xl p-4">
+                <div className="text-center">
+                  <p className="text-4xl font-bold text-white leading-none">50<span className="text-white/80">+</span></p>
+                  <p className="text-white/80 text-xs mt-1 uppercase tracking-widest font-semibold">Carriers de vida</p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </AnimatedSection>
@@ -794,7 +973,7 @@ export default function AgentesPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
                 {[
-                  { amount: '$300', target: '$10,000 AP en 90 días', sub: 'Bono por recluta' },
+                  { amount: '$300', target: '$15,000 AP en 90 días', sub: 'Bono por recluta' },
                   { amount: '$800', target: '$25,000 AP en 90 días', sub: 'Bono por recluta' },
                   { amount: '$2,000', target: '$50,000 AP en 90 días', sub: 'Bono por recluta' },
                 ].map((card) => (
