@@ -474,19 +474,16 @@ export default function AgentesPage() {
           <div className="relative max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left */}
             <div>
-              <span className="text-xs uppercase tracking-widest font-semibold text-[#EA7F49] block mb-4">Capacidad de colocación</span>
+              <span className="text-xs uppercase tracking-widest font-semibold text-[#EA7F49] block mb-4">Acceso a carriers</span>
               <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight mb-6">
-                Acceso amplio a carriers.<br />
-                <span className="text-[#EA7F49]">Más capacidad para servir.</span>
+                Más opciones para<br />
+                <span className="text-[#EA7F49]">cerrar más ventas.</span>
               </h2>
               <p className="text-white/70 leading-relaxed mb-5">
-                Con acceso a más de 50 carriers de vida, NBG Latino está diseñado para apoyar a agentes que necesitan más opciones reales para servir mejor a las familias. La amplitud de soluciones permite trabajar con mayor flexibilidad, responder a distintos perfiles de clientes y reducir la dependencia de una sola compañía o un solo tipo de producto.
+                Con acceso a más de 50 carriers de vida, siempre tendrás una opción para tu cliente — sin importar su edad, historial médico o perfil de salud. Menos rechazos, más cierres.
               </p>
               <p className="text-white/70 leading-relaxed mb-8">
-                Nuestra visión no es limitar al agente a una sola vía. Nuestra visión es construir una estructura que permita producir con más criterio, más opciones y mayor capacidad de servicio.
-              </p>
-              <p className="text-white/50 text-sm leading-relaxed">
-                Más que una plataforma limitada a un solo enfoque, NBG Latino busca convertirse en una estructura sólida, moderna y completa para agentes que quieren crecer con más herramientas, más opciones y más capacidad real de servicio.
+                No dependas de una sola compañía. En NBG Latino te damos las herramientas para trabajar con flexibilidad y responder a cualquier cliente que llegue a tu puerta.
               </p>
             </div>
 
@@ -495,7 +492,7 @@ export default function AgentesPage() {
               {[
                 { icon: '🏢', text: 'Acceso amplio a carriers de vida' },
                 { icon: '👥', text: 'Más opciones para distintos perfiles de clientes' },
-                { icon: '📈', text: 'Mayor capacidad de colocación' },
+                { icon: '📈', text: 'Más cierres, menos rechazos' },
                 { icon: '🔓', text: 'Menos dependencia de una sola compañía' },
                 { icon: '🌎', text: 'Estructura pensada para servir mejor al mercado latino' },
               ].map(({ icon, text }) => (
