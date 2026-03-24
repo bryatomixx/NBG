@@ -3,6 +3,7 @@ import Link from 'next/link'
 import CTABanner from '@/components/ui/CTABanner'
 import TestimonialSlider from '@/components/home/TestimonialSlider'
 import AnimatedSection from '@/components/ui/AnimatedSection'
+import HeroSplit from '@/components/home/HeroSplit'
 import JsonLd from '@/components/seo/JsonLd'
 
 export const metadata: Metadata = {
@@ -65,24 +66,13 @@ export default function LatinoPage() {
       <JsonLd data={schema} />
 
       {/* Hero */}
-      <section className="bg-[#EAF2E5] py-28 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <span className="inline-block text-xs uppercase tracking-widest font-semibold bg-white text-[#10393C] px-3 py-1 rounded-full mb-6">NBG Latino</span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#10393C] leading-tight mb-6">
-            Tu familia merece protección.<br />
-            <span className="text-[#EA7F49]">Nosotros hablamos tu idioma.</span>
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-10">
-            Servicios de seguros de vida en español, diseñados para la comunidad latina en Florida. Agentes bilingües listos para ayudarte.
-          </p>
-          <Link
-            href="/quote"
-            className="inline-block bg-[#EA7F49] hover:bg-[#ED6835] text-white font-semibold px-10 py-4 rounded-full text-lg transition-colors"
-          >
-            Obtén tu cotización gratis
-          </Link>
-        </div>
-      </section>
+      <HeroSplit
+        badge="NBG Latino · Agentes Bilingües en Florida"
+        headline="Tu familia merece protección real"
+        subheadline="Seguros de vida en español, diseñados para la comunidad latina en Florida. Agentes bilingües listos para protegerte sin complicaciones."
+        primaryCta={{ label: 'Cotización gratis', href: '/quote' }}
+        secondaryCta={{ label: 'Cómo funciona', href: '#como-funciona' }}
+      />
 
       {/* Por qué NBG Latino */}
       <AnimatedSection>
