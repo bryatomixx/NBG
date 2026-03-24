@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { inter, playfair } from '@/lib/fonts'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import ScrollProgress from '@/components/ui/ScrollProgress'
+import SmoothScroll from '@/components/ui/SmoothScroll'
 import '@/app/globals.css'
 
 export const metadata: Metadata = {
@@ -20,11 +22,14 @@ export const metadata: Metadata = {
 
 export default function EnLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="font-[var(--font-inter)]">
-        <Navbar />
-        <main className="pt-16">{children}</main>
-        <Footer />
+    <html lang="en" className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
+      <body className="font-[var(--font-inter)]" suppressHydrationWarning>
+        <SmoothScroll>
+          <ScrollProgress />
+          <Navbar />
+          <main className="pt-16">{children}</main>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   )

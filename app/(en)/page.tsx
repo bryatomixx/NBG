@@ -2,12 +2,13 @@ import type { Metadata } from 'next'
 import HeroSplit from '@/components/home/HeroSplit'
 import LogoCarousel from '@/components/ui/LogoCarousel'
 import StatsBar from '@/components/home/StatsBar'
-import ServiceCard from '@/components/home/ServiceCard'
+import BentoServices from '@/components/home/BentoServices'
 import BenefitCard from '@/components/home/BenefitCard'
 import TestimonialSlider from '@/components/home/TestimonialSlider'
 import LatinoBadge from '@/components/home/LatinoBadge'
 import CTABanner from '@/components/ui/CTABanner'
 import AnimatedSection from '@/components/ui/AnimatedSection'
+import MagneticButton from '@/components/ui/MagneticButton'
 import { services } from '@/data/services'
 import { benefits } from '@/data/benefits'
 import JsonLd from '@/components/seo/JsonLd'
@@ -80,7 +81,12 @@ export default function HomePage() {
               <p className="text-gray-600 leading-relaxed mb-6">
                 Based in Doral, FL, National Brokers Group has been helping families secure their financial future with comprehensive life insurance coverage. We work with 50+ top-rated carriers to find the best plan at the best price.
               </p>
-              <a href="/about" className="text-[#EA7F49] font-semibold hover:underline">Meet our team →</a>
+              <MagneticButton>
+                <a href="/about" className="inline-flex items-center gap-1 text-[#EA7F49] font-semibold group">
+                  Meet our team
+                  <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
+                </a>
+              </MagneticButton>
             </div>
             <div className="bg-white rounded-3xl p-8 shadow-sm">
               <ul className="space-y-4">
@@ -98,17 +104,16 @@ export default function HomePage() {
 
       <StatsBar />
 
-      {/* Services */}
+      {/* Services — Bento Grid */}
       <AnimatedSection>
         <section className="bg-white py-20 px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-14">
               <span className="text-xs uppercase tracking-widest font-semibold text-[#EA7F49] block mb-3">Coverage Options</span>
               <h2 className="text-3xl md:text-4xl font-bold text-[#10393C]">Life Insurance Solutions</h2>
+              <p className="text-gray-400 mt-3 max-w-md mx-auto">Choose the protection that fits your life and budget — we find the best plan from 50+ carriers.</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {services.map(s => <ServiceCard key={s.title} {...s} />)}
-            </div>
+            <BentoServices services={services} />
           </div>
         </section>
       </AnimatedSection>

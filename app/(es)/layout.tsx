@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 
 export default function EsLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="font-[var(--font-inter)]">
+    <html lang="es" className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
+      <body className="font-[var(--font-inter)]" suppressHydrationWarning>
         <Navbar />
         <main className="pt-16">{children}</main>
         <Footer />

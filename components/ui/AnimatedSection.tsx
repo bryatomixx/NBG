@@ -1,24 +1,17 @@
 'use client'
 import { motion, useInView } from 'framer-motion'
-import { useRef, ReactNode } from 'react'
+import { useRef } from 'react'
 
-interface Props {
-  children: ReactNode
-  className?: string
-  delay?: number
-}
-
-export default function AnimatedSection({ children, className = '', delay = 0 }: Props) {
+export default function AnimatedSection({ children }: { children: React.ReactNode }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
     <motion.div
       ref={ref}
-      className={className}
-      initial={{ opacity: 0, y: 32 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay, ease: 'easeOut' }}
+      initial={{ opacity: 0, y: 40, scale: 0.98 }}
+      animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+      transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       {children}
     </motion.div>
