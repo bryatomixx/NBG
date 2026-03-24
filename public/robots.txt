@@ -1,0 +1,13 @@
+# *
+User-agent: *
+Allow: /
+
+# *
+User-agent: *
+Disallow: /api/
+
+# Host
+Host: https://nbg-insurance.com
+
+# Sitemaps
+Sitemap: https://nbg-insurance.com/sitemap.xml
